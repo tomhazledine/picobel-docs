@@ -16,6 +16,7 @@ const Main = ({ content, page, site }) => {
                     <div dangerouslySetInnerHTML={{ __html: content }} />
                     <a href={site.url}>Home</a>
                 </div>
+                <script src="/picobel-showcase.app.js"></script>
             </body>
         </html>
     );

@@ -1,6 +1,6 @@
 {
     "in": "src/content",
-    "out": "dist",
+    "out": "build",
     "templates": "src/templates",
     "styles": "src/styles",
     "data": {
