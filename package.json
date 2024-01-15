@@ -1,9 +1,10 @@
 {
-  "name": "picobel-showcase",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "devDependencies": {
-    "jsssg": "^0.1.15"
-  }
+    "name": "picobel-showcase",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "type": "module",
+    "devDependencies": {
+        "jsssg": "^0.1.15"
+    }
 }
