@@ -4,6 +4,6 @@
     "templates": "src/templates",
     "styles": "src/styles",
     "data": {
-        "title": "Picobel Docs"
+        "title": "Picobel"
     }
 }

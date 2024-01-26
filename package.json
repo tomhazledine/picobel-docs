@@ -6,10 +6,14 @@
     "type": "module",
     "scripts": {
         "build": "jsssg build && node esbuild.js",
-        "dev": "jsssg build --watch --serve"
+        "dev": "jsssg build --watch --serve",
+        "dev:assets": "node esbuild.js --mode=development"
     },
     "devDependencies": {
         "esbuild": "^0.19.11",
         "jsssg": "^0.1.15"
+    },
+    "dependencies": {
+        "picobel": "^3.0.0"
     }
 }

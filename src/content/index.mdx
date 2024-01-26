@@ -1,0 +1,93 @@
+---
+title: Picobel
+layout: Home
+menuGroup: general
+---
+
+<ToC items={[
+    'Why would I need this?',
+    'Examples',
+    'Quick start'
+]} />
+
+Picobel.js (pronounced _peek-o-bell_, as in _decibel_) is a lightweight dependency-free Javascript tool that converts html audio tags into styleable markup.
+
+## Why would I need this?
+
+There are two reasons you might want to use Picobel:
+
+1. You want a uniform cross-browser experience for the audio players on your site. Pick a pre-made Picobel theme, and you're all set.
+
+2. You're frontender and CSS magician who loves to have control over every aspect the sites you create. You can use the markup-only version of Picobel, and write your own CSS.
+
+The native html `<audio>` tag provides fantastic functionality, but gives you no styling options at all. Picobel rebuilds the audio player with regular html elements: you get all the functionality of the native audio element, _and_ complete control of it's appearance.
+
+## Examples
+
+Using Picobel you can turn this:
+
+<audio src="/audio-examples/taken-at-the-flood.mp3" controls>
+    Your browser does not support the <code>audio</code> element.
+</audio>
+
+![Native audio player](images/native_players-600.png)
+
+Into this:
+
+<div id="example-01">
+    <audio src="/audio-examples/taken-at-the-flood.mp3" controls>
+        Your browser does not support the <code>audio</code> element.
+    </audio>
+</div>
+
+Or this:
+
+<div id="example-02">
+    <audio src="/audio-examples/taken-at-the-flood.mp3" controls>
+        Your browser does not support the <code>audio</code> element.
+    </audio>
+</div>
+
+Or this:
+
+<div id="example-03">
+    <audio src="/audio-examples/taken-at-the-flood.mp3" controls>
+        Your browser does not support the <code>audio</code> element.
+    </audio>
+</div>
+
+Or even this (if you're crazy):
+
+<div id="example-04">
+    <audio src="/audio-examples/taken-at-the-flood.mp3" title="Taken at the Flood" artist="Freeze Theme" controls>
+        Your browser does not support the <code>audio</code> element.
+    </audio>
+</div>
+
+**Picobel** allows you to create custom styles for your audio players: providing cross-browser consistency and a seamless integration with your existing brand styles.
+
+## Quick start
+
+Add Picobel to your project:
+
+```bash
+yarn add picobel
+```
+
+In your JS, initialise Picobel with your chosen class name:
+
+```js
+import picobel from "picobel";
+
+picobel({theme: "my-awesome-audio-player"});
+```
+
+Picobel will then find any `<audio>` elements on the page and replace them with markup you can style with CSS.
+
+## Learn more
+
+There are plenty of things you can tweak and configure in Picobel. Learn more here:
+
+* [Using premade themes]()
+* [Write your own CSS theme]()
+* [Picobel Web Component]()
