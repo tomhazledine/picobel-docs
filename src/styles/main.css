@@ -1,6 +1,18 @@
-@import "./base.layout.css";
-@import "./components.sidebar.css";
-@import "./components.menu.css";
+@import "./_settings.colours.css";
+@import "./_settings.breakpoints.css";
+@import "./_settings.fonts.css";
+
+@import "./_utils.hidden.css";
+
+@import "./_base.code.css";
+@import "./_base.general.css";
+@import "./_base.icons.css";
+@import "./_base.layout.css";
+
+@import "./_components.header.css";
+@import "./_components.home.css";
+@import "./_components.sidebar.css";
+@import "./_components.menu.css";
 
 :root {
     color-scheme: light dark;
@@ -12,5 +24,5 @@
 } */
 
 main img {
-    width: 100%;
+    max-width: 100%;
 }

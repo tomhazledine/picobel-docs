@@ -16,14 +16,23 @@ const args = parseArgs(process.argv);
 const appName = "picobel-showcase";
 
 const config = {
-    entryPoints: ["src/js/app.js"],
+    entryPoints: ["src/js/app.js", "src/styles/main.css"],
     entryNames: `${appName}.[name]`,
     bundle: true,
     outdir: `build`,
     minify: args.mode !== "development",
     treeShaking: args.mode !== "development",
     // outfile: `build/${AppName}.[name].js`,
-    loader: { ".js": "jsx", ".scss": "css" }
+    loader: { ".js": "jsx", ".scss": "css" },
+    external: [
+        "*.eot",
+        "*.eot?#iefix",
+        "*.woff",
+        "*.woff2",
+        "*.ttf",
+        "*.svg"
+        // Add other file extensions as needed
+    ]
 };
 
 if (args.mode === "development") {

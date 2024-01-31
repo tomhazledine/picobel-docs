@@ -39,7 +39,7 @@ const ToC = ({ items, heading = "In this article" }) => {
     const itemsWithSlugs = parseSlugs(items);
     return (
         <nav className="toc">
-            <h2>{heading}</h2>
+            {heading && <h2>{heading}</h2>}
             <ol>
                 {itemsWithSlugs.map(item => (
                     <ToCItem item={item} key={item.slug} />

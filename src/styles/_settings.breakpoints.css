@@ -1,0 +1,11 @@
+:root {
+    /* min-width breakpoints */
+    --breakpoint-u1: 960px;
+    --breakpoint-u2: 1200px;
+    --breakpoint-u3: 1400px;
+
+    /* max-width breakpoints */
+    --breakpoint-d1: 1000px;
+    --breakpoint-d2: 750px;
+    --breakpoint-d3: 400px;
+}

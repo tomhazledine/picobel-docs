@@ -1,0 +1,32 @@
+.menu > ul {
+    margin: 0;
+    padding: 1rem;
+}
+
+.menu-item {
+    list-style: none;
+}
+
+.menu-item a {
+    text-decoration: none;
+    display: block;
+    padding: 1rem 1rem;
+    line-height: 1;
+    /* padding: 0.5em 0.5em 0.5em; */
+    /* border-bottom: 1px solid var(--hairline); */
+    color: var(--text);
+}
+
+.menu-item a:hover {
+    background: var(--background--secondary);
+}
+
+.menu-item__current a {
+    font-weight: var(--type-weight--bold);
+    color: var(--text);
+    box-shadow: inset var(--primary) 0.4rem 0 0 0;
+    /* background: var(--primary--light); */
+}
+.menu-item__current a:hover {
+    /* background: var(--primary--light); */
+}

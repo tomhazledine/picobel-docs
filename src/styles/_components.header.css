@@ -1,0 +1,27 @@
+.header {
+    padding: 1rem;
+    border-bottom: 0.1rem solid var(--hairline);
+    /* Leave space for menu-close icon */
+    padding-right: 6.2rem;
+    @media (min-width: 1200px) {
+        padding-right: 1rem;
+    }
+}
+
+.header__link {
+    text-decoration: none;
+    color: var(--text);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.header__logo {
+    width: 3.2rem;
+    height: 3.2rem;
+}
+
+.header__text {
+    font-size: 2.6rem;
+    line-height: 1;
+}

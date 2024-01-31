@@ -1,0 +1,57 @@
+:root {
+    --black: #4d4d4d;
+    --black--light: #888;
+    --black--translucent: #4d4d4d44;
+    --black--unchanging: #4d4d4d;
+    --black--unchanging--dark: #3d3d3d;
+    --black--soft: #666;
+    --white: #fdfdfa;
+    /* --white: #ffffff; */
+    --white--on-dark: #fdfdfa;
+    --white--unchanging: #fdfdfa;
+    --cream: #efeeeb;
+    --cream--translucent: rgba(239, 238, 235, 0.9);
+    --cream--unchanging: #efeeeb;
+    --grey: #dad8d2;
+    --grey--light: hsl(45, 10%, 94%);
+    --grey--dark: #aca79a;
+    --primary: #00b7c6;
+    --primary: #00b7c6;
+    --primary--translucent: rgba(0, 183, 198, 0.3);
+    --primary--translucent--light: rgba(0, 183, 198, 0.1);
+    --primary--translucent--dark: rgba(0, 183, 198, 0.6);
+    --secondary: #ff851b;
+
+    --orange: #793200;
+    --orange--dark: #c65100;
+    --primary--dark: #007079;
+    --primary--mid: #42d3e2;
+    --primary--light: #e4f6f5;
+
+    --selection--primary: --white;
+    --selection--secondary: #bbb;
+    --selection--tertiary: rgba($primary, 0.5);
+
+    --background: var(--white);
+    --background--secondary: var(--grey--light);
+    --text: var(--black);
+    --hairline: var(--grey);
+
+    --hljs-github-dark-dimmed-bg: #22272e;
+    --hljs-github-dark-bg: #0d1117;
+    --hljs-github-bg: #ffffff;
+    --hljs-github-dark-dimmed-text: #adbac7;
+    /* --code-text: var(--hljs-github-dark-dimmed-text); */
+    /* --code-background: var(--hljs-github-dark-dimmed-bg); */
+    --code-text: var(--text);
+    --code-background: var(--cream);
+}
+
+::selection {
+    color: var(--black);
+    background: var(--primary);
+}
+a::selection {
+    background: var(--secondary);
+    text-shadow: none !important;
+}

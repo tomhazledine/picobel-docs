@@ -1,5 +1,6 @@
 import Header from "./components/Header.js";
 import Menu from "./components/Menu.js";
+import Logo from "./icons/Logo.js";
 
 const Main = ({ page, site, children }) => {
     const menuPages = site.allPages
@@ -26,25 +27,27 @@ const Main = ({ page, site, children }) => {
                     name="viewport"
                     content="width=device-width, initial-scale=1"
                 />
-                <link rel="stylesheet" href={site.url + "main.css"} />
+                <link
+                    rel="stylesheet"
+                    href={site.url + "picobel-showcase.main.css"}
+                />
             </head>
             <body className="outer">
                 <aside className="sidebar">
                     <a href="/" className="sidebar__home-link">
+                        <Logo className="sidebar__home-link-logo" />
                         <span className="hidden--visually">{site.title}</span>
-                    </a>
-                    <a href="https://github.com/tomhazledine/picobel/actions/workflows/node.js.yml">
-                        <img
-                            src="https://github.com/tomhazledine/picobel/actions/workflows/node.js.yml/badge.svg"
-                            alt="Node.js CI"
-                        />
                     </a>
                     <input
                         className="sidebar__menu-checkbox"
                         type="checkbox"
                         id="show-menu"
                     />
-                    <label className="sidebar__toggle" htmlFor="show-menu">
+                    <label
+                        className="sidebar__toggle"
+                        htmlFor="show-menu"
+                        tabIndex="0"
+                    >
                         <span className="hidden--visually">Show Menu</span>
                     </label>
                     <label className="sidebar__mask" htmlFor="show-menu">
@@ -55,25 +58,13 @@ const Main = ({ page, site, children }) => {
                             <Header title={site.title} />
                             <Menu
                                 pages={menuPages}
-                                sections={[
-                                    { slug: "general", label: "General" }
-                                    // { slug: "overview", label: "Overview" },
-                                    // {
-                                    //     slug: "getting_started",
-                                    //     label: "Getting Started"
-                                    // },
-                                    // { slug: "features", label: "Features" },
-                                    // {
-                                    //     slug: "examples",
-                                    //     label: "Code Examples"
-                                    // },
-                                    // { slug: "advanced", label: "Advanced" }
-                                ]}
+                                sections={false}
                                 current={page.url}
                             />
                             <label
                                 className="sidebar__toggle--inner"
                                 htmlFor="show-menu"
+                                tabIndex="0"
                             >
                                 <span className="hidden--visually">
                                     Hide Menu

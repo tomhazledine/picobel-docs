@@ -1,9 +1,9 @@
 {
+    "images": "images",
     "in": "src/content",
     "out": "build",
     "templates": "src/templates",
-    "styles": "src/styles",
     "data": {
-        "title": "Picobel"
+        "title": "Picobel.js"
     }
 }

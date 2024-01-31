@@ -1,0 +1,11 @@
+.icon {
+    display: block;
+}
+.icon--logo {
+}
+.icon--logo__core {
+    fill: var(--text);
+}
+.icon--logo__edges {
+    fill: var(--primary);
+}

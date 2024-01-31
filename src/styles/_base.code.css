@@ -1,0 +1,19 @@
+code {
+    font-family: var(--monospace);
+    color: var(--code-text);
+    background: var(--code-background);
+}
+
+pre {
+    overflow: hidden;
+    color: var(--code-text);
+    background: var(--code-background);
+    font-size: inherit;
+    padding: 2rem;
+    overflow: auto;
+    border-radius: 0.6rem;
+}
+
+*:not(pre) > code {
+    padding: 0 0.3em 0.2em 0.3em;
+}

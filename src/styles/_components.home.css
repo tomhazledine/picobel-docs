@@ -1,0 +1,29 @@
+.home__hero-image {
+    max-width: 100%;
+    width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+    filter: drop-shadow(0.2rem 0.2rem 0.4rem rgb(0 0 0 / 0.2));
+}
+
+.home__title {
+    text-align: center;
+    font-size: 4rem;
+}
+
+.home__meta {
+    text-align: center;
+}
+
+.home__meta-item {
+    line-height: 1;
+}
+
+.home__meta-item--ci-badge {
+    /* height: 2rem;
+    width: 12.5rem; */
+    /* background: var(--background--secondary); */
+}
+.home__meta-item--ci-badge img {
+    display: block;
+}

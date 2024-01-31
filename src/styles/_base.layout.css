@@ -19,6 +19,14 @@
     align-items: stretch;
 }
 
+.cluster--vertical {
+    align-items: center;
+}
+
+.cluster--centered {
+    justify-content: center;
+}
+
 .cluster--no-gutter {
     gap: 0;
 }
