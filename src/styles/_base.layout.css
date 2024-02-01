@@ -15,8 +15,11 @@
 
 .cluster {
     display: flex;
-    gap: 1em;
+    /* gap: 1em; */
     align-items: stretch;
+}
+.cluster:not(.cluster--no-gutter) > * + * {
+    margin-left: 1em;
 }
 
 .cluster--vertical {

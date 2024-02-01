@@ -21,6 +21,7 @@
     --primary--translucent--light: rgba(0, 183, 198, 0.1);
     --primary--translucent--dark: rgba(0, 183, 198, 0.6);
     --secondary: #ff851b;
+    --secondary--dark: hsl(27.9, 100%, 45.3%);
 
     --orange: #793200;
     --orange--dark: #c65100;
@@ -42,16 +43,17 @@
     --hljs-github-bg: #ffffff;
     --hljs-github-dark-dimmed-text: #adbac7;
     /* --code-text: var(--hljs-github-dark-dimmed-text); */
-    /* --code-background: var(--hljs-github-dark-dimmed-bg); */
+    --code-background: var(--hljs-github-bg);
     --code-text: var(--text);
-    --code-background: var(--cream);
+    /* --code-background: var(--cream); */
 }
 
 ::selection {
-    color: var(--black);
+    color: var(--white);
     background: var(--primary);
 }
 a::selection {
     background: var(--secondary);
+    /* color: var(--primary); */
     text-shadow: none !important;
 }

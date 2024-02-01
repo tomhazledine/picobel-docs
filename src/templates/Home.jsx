@@ -10,9 +10,11 @@ const Home = ({ content, page, site }) => {
             <div className="stack--small">
                 <h1 className="home__title">{page.title}</h1>
                 <div className="home__meta cluster cluster--centered cluster--vertical">
-                    <span className="home__meta-item">
-                        Version: {_package.dependencies.picobel}
-                    </span>
+                    {_package && _package.dependencies && (
+                        <span className="home__meta-item">
+                            Version: {_package.dependencies.picobel}
+                        </span>
+                    )}
                     <a
                         className="home__meta-item--ci-badge"
                         href="https://github.com/tomhazledine/picobel/actions/workflows/node.js.yml"
@@ -22,10 +24,16 @@ const Home = ({ content, page, site }) => {
                             alt="Node.js CI"
                         />
                     </a>
+                    <a
+                        className="home__meta-item"
+                        href="https://github.com/tomhazledine/picobel"
+                    >
+                        GitHub
+                    </a>
                 </div>
             </div>
             <div
-                className="stack"
+                className="stack--large"
                 dangerouslySetInnerHTML={{ __html: content }}
             />
         </Main>

@@ -1,0 +1,275 @@
+.comic-sans-ftw.picobel {
+    font-family: "Comic Sans MS";
+    --black: #555;
+    --white: #ffffff;
+    --grey: #ddd;
+    --focus: #015ecc;
+
+    --progress-height: 32px;
+    --progress-inner-height: 10px;
+}
+
+/* Global */
+.comic-sans-ftw.picobel *,
+.comic-sans-ftw.picobel *:before,
+.comic-sans-ftw.picobel *:after {
+    box-sizing: inherit;
+}
+.comic-sans-ftw.picobel *:focus {
+    outline: 2px solid var(--focus);
+    outline-offset: 1px;
+    border-radius: 2px;
+}
+.comic-sans-ftw.picobel {
+    font-size: inherit;
+    position: relative;
+    box-sizing: border-box;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    border: 8px dotted blue;
+    background: palegreen;
+    padding: 10px;
+}
+
+/* Simulates an infinite slide-to-the-right effect. */
+@keyframes background_slide {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 20px 0;
+    }
+}
+
+/* The loading-state indicator */
+.comic-sans-ftw__loader {
+    position: absolute;
+    display: none;
+    z-index: 5;
+    bottom: -1px;
+    left: 183px;
+    right: 0;
+    height: var(--progress-height);
+    border-top: 1px solid var(--black);
+    border-bottom: 1px solid var(--black);
+    background: linear-gradient(to right, var(--white) 50%, var(--black) 50%);
+    background-size: 20px 20px;
+    background-repeat: repeat;
+    background-position: 0 0;
+    animation: background_slide linear infinite 0.4s;
+}
+
+/* Only show the loader when we're loading */
+.comic-sans-ftw.loading .comic-sans-ftw__loader {
+    display: block;
+}
+
+/* The play-pause button */
+.comic-sans-ftw__play-pause {
+    font-size: 20px;
+    border: 2px solid black;
+    appearance: none;
+    width: 64px;
+    height: 64px;
+    background: yellow;
+    cursor: pointer;
+    font-family: inherit;
+    transform: rotate(-10deg);
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.comic-sans-ftw__mute {
+    font-size: 12px;
+    border: 2px solid black;
+    appearance: none;
+    width: 64px;
+    height: 64px;
+    background: orange;
+    cursor: pointer;
+    font-family: inherit;
+    transform: rotate(6deg);
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+/* Change icon when muted */
+.comic-sans-ftw__mute.muted {
+    background: #ddd;
+}
+
+.comic-sans-ftw__wrapper--title-artist-timer-progress-duration {
+    margin-right: 20px;
+    width: 100%;
+}
+
+.comic-sans-ftw__wrapper--title-artist {
+    display: flex;
+    align-items: center;
+}
+
+.comic-sans-ftw__title {
+    display: block;
+    font-weight: bold;
+    transform: rotate(-2deg);
+    margin-right: 40px;
+    font-size: 20px;
+    position: relative;
+}
+.comic-sans-ftw__title:after {
+    display: block;
+    content: "-";
+    font-size: 40px;
+    color: orange;
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    transform: translate(100%, -50%) rotate(10deg);
+}
+
+.comic-sans-ftw__artist {
+    display: block;
+    transform: rotate(-3deg);
+}
+
+.comic-sans-ftw__wrapper--timer-progress-duration {
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    margin-top: 20px;
+}
+
+.comic-sans-ftw__progress-label {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.comic-sans-ftw__progress {
+    position: relative;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.comic-sans-ftw__timer,
+.comic-sans-ftw__duration {
+    width: 60px;
+    height: 60px;
+    background: black;
+    color: white;
+    border-radius: 50%;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1;
+    padding-top: 20px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.comic-sans-ftw__timer {
+    margin-right: 20px;
+    transform: rotate(-12deg);
+}
+.comic-sans-ftw__duration {
+    margin-left: 20px;
+    transform: rotate(16deg);
+}
+
+/* Hide song-timings when we're loading */
+.comic-sans-ftw.loading .comic-sans-ftw__timer,
+.comic-sans-ftw.loading .comic-sans-ftw__duration {
+    display: none;
+}
+
+/* The "fake" range slider */
+.comic-sans-ftw__progress-slider__wrapper {
+    height: var(--progress-height);
+    font-size: 10px;
+    line-height: 1;
+    width: 100%;
+}
+.comic-sans-ftw__progress-slider__replacement {
+    position: relative;
+    transform: rotate(3deg);
+    height: var(--progress-height);
+}
+.comic-sans-ftw__progress-slider__replacement.focus {
+    outline: 2px solid var(--focus);
+    outline-offset: 1px;
+    border-radius: 2px;
+    z-index: 3;
+}
+.comic-sans-ftw__progress-slider__background {
+    height: var(--progress-inner-height);
+    position: absolute;
+    box-shadow: white 0 0 0 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    background: grey;
+    border-radius: 5px;
+    width: 100%;
+}
+.comic-sans-ftw__progress-slider__indicator {
+    height: var(--progress-inner-height);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    background: green;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    width: 0%;
+}
+.comic-sans-ftw__progress-slider__playhead {
+    width: var(--progress-height);
+    height: var(--progress-height);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0%;
+    transform: translateX(-50%);
+    background: red;
+    border: 4px solid black;
+}
+
+/* Hide dynamic elements until loading has finished */
+.comic-sans-ftw.loading .comic-sans-ftw__progress-slider__indicator,
+.comic-sans-ftw.loading .comic-sans-ftw__progress-slider__playhead {
+    display: none;
+}
+
+/* Make sure the real range element is the same size as the fake one. Position it on-top of the fake and make it invisible (so we can still get the functionality) */
+.comic-sans-ftw__progress-slider__range {
+    width: 100%;
+    height: var(--progress-height);
+    padding: 0;
+    margin: 0;
+    z-index: 4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+/* Make sure the range Track is the right size and shape. Needs prefixed versions to ensure cross-browser consistency. */
+.comic-sans-ftw__progress-slider__range::-webkit-slider-runnable-track {
+    width: 100%;
+    height: var(--progress-height);
+    cursor: pointer;
+}
+.comic-sans-ftw__progress-slider__range::-moz-range-track {
+    width: 100%;
+    height: var(--progress-height);
+    cursor: pointer;
+}
+.comic-sans-ftw__progress-slider__range::-ms-track {
+    width: 100%;
+    height: var(--progress-height);
+    cursor: pointer;
+}

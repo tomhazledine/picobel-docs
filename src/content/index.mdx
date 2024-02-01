@@ -4,13 +4,97 @@ layout: Home
 menuGroup: general
 ---
 
+Picobel.js (pronounced _peek-o-bell_, as in _decibel_) is a lightweight dependency-free Javascript tool that converts html audio tags into styleable markup.
+
+<div className="stack--small">
+    <p>Using Picobel you can turn a plain old <code>&lt;audio&gt;</code> tag that looks like this:</p>
+    <audio src="/audio-examples/taken-at-the-flood.mp3" controls>
+        Your browser does not support the <code>audio</code> element.
+    </audio>
+    <p className="audio-credit"><em>Audio source: <a href=""><strong>Freeze Them</strong> on Bandcamp</a></em></p>
+</div>
+
+<div className="stack--small">
+    <p>...into a fully styled set of elements that looks like this:</p>
+    <div id="example-01">
+        <audio src="/audio-examples/taken-at-the-flood.mp3" data-artist="Freeze Them" title="Taken at the Flood" controls>
+            Your browser does not support the <code>audio</code> element.
+        </audio>
+    </div>
+
+```js
+import picobel from "picobel";
+
+picobel({ theme: "default" });
+```
+</div>
+
+
+<div className="stack--small">
+    <p>Or maybe like this:</p>
+    <div id="example-02">
+        <audio src="/audio-examples/taken-at-the-flood.mp3" controls>
+            Your browser does not support the <code>audio</code> element.
+        </audio>
+    </div>
+
+```js
+import picobel from "picobel";
+
+picobel({
+    theme: "bare",
+    components: ["playPause", "timer", "duration", "progress"]
+});
+```
+</div>
+
+<div className="stack--small">
+    <p>Or how about some retro media-player vibes?</p>
+    <div id="example-03">
+        <audio src="/audio-examples/taken-at-the-flood.mp3" controls data-artist="Freeze Them" title="Taken at the Flood">
+            Your browser does not support the <code>audio</code> element.
+        </audio>
+        <p className="audio-credit"><em>* Not in any way affiliated with the creators of the iTunes player</em></p>
+    </div>
+
+```js
+import picobel from "picobel";
+
+picobel({ theme: "itunes" });
+```
+</div>
+
+<div className="stack--small">
+    <p>You can apply whatever styles you like (<em>Note: this monstrosity is <strong>not</strong> an officially-supported theme!)</em></p>
+    <div id="example-04">
+        <audio src="/audio-examples/taken-at-the-flood.mp3" title="Taken at the Flood" data-artist="Freeze Them" controls>
+            Your browser does not support the <code>audio</code> element.
+        </audio>
+    </div>
+
+```js
+import picobel from "picobel";
+
+picobel({
+    theme: "comic-sans-ftw",
+    components: [
+        "playPause",
+        "mute",
+        [
+            ["title", "artist"],
+            ["timer", "progress", "duration"]
+        ]
+    ]
+});
+```
+</div>
+
 <ToC heading={false} items={[
     'Why would I need this?',
     'Examples',
     'Quick start'
 ]} />
 
-Picobel.js (pronounced _peek-o-bell_, as in _decibel_) is a lightweight dependency-free Javascript tool that converts html audio tags into styleable markup.
 
 ## Why would I need this?
 
@@ -24,45 +108,6 @@ The native html `<audio>` tag provides fantastic functionality, but gives you no
 
 ## Examples
 
-Using Picobel you can turn this:
-
-<audio src="/audio-examples/taken-at-the-flood.mp3" controls>
-    Your browser does not support the <code>audio</code> element.
-</audio>
-
-![Native audio player](images/native_players-600.png)
-
-Into this:
-
-<div id="example-01">
-    <audio src="/audio-examples/taken-at-the-flood.mp3" controls>
-        Your browser does not support the <code>audio</code> element.
-    </audio>
-</div>
-
-Or this:
-
-<div id="example-02">
-    <audio src="/audio-examples/taken-at-the-flood.mp3" controls>
-        Your browser does not support the <code>audio</code> element.
-    </audio>
-</div>
-
-Or this:
-
-<div id="example-03">
-    <audio src="/audio-examples/taken-at-the-flood.mp3" controls>
-        Your browser does not support the <code>audio</code> element.
-    </audio>
-</div>
-
-Or even this (if you're crazy):
-
-<div id="example-04">
-    <audio src="/audio-examples/taken-at-the-flood.mp3" title="Taken at the Flood" artist="Freeze Theme" controls>
-        Your browser does not support the <code>audio</code> element.
-    </audio>
-</div>
 
 **Picobel** allows you to create custom styles for your audio players: providing cross-browser consistency and a seamless integration with your existing brand styles.
 

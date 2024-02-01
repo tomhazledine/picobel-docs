@@ -15,6 +15,6 @@
         "jsssg": "^0.1.15"
     },
     "dependencies": {
-        "picobel": "3.0.0"
+        "picobel": "3.0.2"
     }
 }

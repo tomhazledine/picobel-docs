@@ -1,0 +1,196 @@
+.picobel.example {
+    display: flex;
+    width: 100%;
+    justify-content: stretch;
+    align-items: center;
+    --progress-height: 3rem;
+    --progress-track-height: 2rem;
+    --focus: #015ecc;
+}
+/* The play-pause button */
+.example__play-pause {
+    flex-grow: 0;
+    flex-shrink: 0;
+    font-size: 10px;
+    border: none;
+    border-radius: 50%;
+    appearance: none;
+    position: relative;
+    width: 64px;
+    height: 64px;
+    background: var(--secondary);
+    cursor: pointer;
+    /* margin-right: 1em; */
+}
+
+.example__play-pause__text {
+    display: none;
+}
+
+.example__play-pause:hover {
+    background: var(--secondary--dark);
+}
+
+.example__play-pause:focus {
+    z-index: 3;
+}
+
+/* The "play" icon */
+.example__play-pause:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-30%, -50%);
+    border-top: 10px solid transparent;
+    border-left: 12px solid var(--white);
+    border-bottom: 10px solid transparent;
+}
+
+/* The "pause" icon */
+.example__play-pause.playing:before {
+    height: 18px;
+    width: 16px;
+    transform: translate(-50%, -50%);
+    border-top: 0;
+    border-left: 6px solid var(--white);
+    border-right: 6px solid var(--white);
+    border-bottom: 0;
+}
+.example__timer {
+    width: 2.5em;
+    display: block;
+    margin-left: 1rem;
+    position: relative;
+    flex-grow: 0;
+    flex-shrink: 0;
+    text-align: center;
+}
+.example__timer:after {
+    position: absolute;
+    top: 0;
+    right: -0.8em;
+    display: block;
+    content: "/";
+    /* margin-left: 0.5rem; */
+}
+.example__duration {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 2.5em;
+    display: block;
+    margin-right: 1rem;
+    margin-left: 1.8rem;
+}
+
+.example__progress {
+    width: 100%;
+}
+
+.example__progress-label {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+/* The "fake" range slider */
+.example__progress-slider__wrapper {
+    font-size: 10px;
+    position: relative;
+    line-height: 1;
+    /* position: absolute; */
+    /* bottom: 0; */
+    /* left: 0; */
+    width: 100%;
+}
+.example__progress-slider__replacement {
+    height: var(--progress-height);
+    position: relative;
+    background: var(--white);
+    /* overflow: hidden; */
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+}
+
+.example__progress-slider__replacement.focus {
+    outline: 2px solid var(--focus);
+    outline-offset: 1px;
+    border-radius: 2px;
+}
+.example__progress-slider__background {
+    height: var(--progress-track-height);
+    width: 100%;
+    background: var(--grey);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    /* border: 1px solid var(--black); */
+}
+.example__progress-slider__replacement.focus {
+    outline: 2px solid var(--focus);
+    outline-offset: 1px;
+    border-radius: 2px;
+    z-index: 3;
+}
+.example__progress-slider__indicator {
+    height: var(--progress-track-height);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    /* border: 1px solid var(--black); */
+    background: var(--secondary);
+    width: 0%;
+}
+.example__progress-slider__playhead {
+    width: 8px;
+    height: 3rem;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    background: var(--black);
+}
+
+/* Hide dynamic elements until loading has finished */
+.example.loading .example__progress-slider__indicator,
+.example.loading .example__progress-slider__playhead {
+    display: none;
+}
+
+/* Make sure the real range element is the same size as the fake one. Position it on-top of the fake and make it invisible (so we can still get the functionality) */
+.example__progress-slider__range {
+    width: 100%;
+    height: var(--progress-height);
+    padding: 0;
+    margin: 0;
+    z-index: 4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+/* Make sure the range Track is the right size and shape. Needs prefixed versions to ensure cross-browser consistency. */
+.example__progress-slider__range::-webkit-slider-runnable-track {
+    width: 100%;
+    height: var(--progress-height);
+    cursor: pointer;
+}
+.example__progress-slider__range::-moz-range-track {
+    width: 100%;
+    height: var(--progress-height);
+    cursor: pointer;
+}
+.example__progress-slider__range::-ms-track {
+    width: 100%;
+    height: var(--progress-height);
+    cursor: pointer;
+}

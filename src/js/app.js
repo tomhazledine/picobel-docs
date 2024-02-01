@@ -3,26 +3,27 @@ import picobel from "picobel";
 const homepageExamples = [
     {
         node: document.querySelector("#example-01"),
-        theme: "bare",
-        components: ["playPause", "progress"]
-    },
-    {
-        node: document.querySelector("#example-02"),
         theme: "default"
     },
     {
+        node: document.querySelector("#example-02"),
+        theme: "example",
+        components: ["playPause", "timer", "duration", "progress"]
+    },
+    {
         node: document.querySelector("#example-03"),
-        theme: "bare",
-        components: ["playPause", "progress"]
+        theme: "itunes"
     },
     {
         node: document.querySelector("#example-04"),
-        theme: "crazy",
+        theme: "comic-sans-ftw",
         components: [
+            [
+                ["title", "artist"],
+                ["timer", "progress", "duration"]
+            ],
             "playPause",
-            "mute",
-            ["title", "artist"],
-            ["progress", ["timer", "duration"]]
+            "mute"
         ]
     }
 ];
