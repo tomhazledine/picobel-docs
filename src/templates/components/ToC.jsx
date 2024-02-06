@@ -38,9 +38,9 @@ const ToCItem = ({ item }) => (
 const ToC = ({ items, heading = "In this article" }) => {
     const itemsWithSlugs = parseSlugs(items);
     return (
-        <nav className="toc">
+        <nav className="toc stack--small">
             {heading && <h2>{heading}</h2>}
-            <ol>
+            <ol className="stack--small">
                 {itemsWithSlugs.map(item => (
                     <ToCItem item={item} key={item.slug} />
                 ))}

@@ -4,19 +4,23 @@ import Logo from "./icons/Logo.js";
 
 const Main = ({ page, site, children }) => {
     const menuPages = site.allPages
+        .filter(_page => !_page.frontmatter.excludeFromMenu)
         .map(_page => ({
             title:
                 _page.frontmatter.title === "Picobel"
                     ? "Home"
+                    : _page.frontmatter.menuTitle
+                    ? _page.frontmatter.menuTitle
                     : _page.frontmatter.title,
             url: _page.url,
+            priority: _page.frontmatter.menuPriority,
             current: _page.url === page.url,
             menuGroup: _page.frontmatter.menuGroup
         }))
         .sort((a, b) => {
             if (a.title === "Home") return -1;
             if (b.title === "Home") return 1;
-            return a.title.localeCompare(b.title);
+            return a.priority - b.priority;
         });
     return (
         <html lang="en">

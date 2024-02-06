@@ -115,7 +115,19 @@
     transform: rotate(-2deg);
     margin-right: 40px;
     font-size: 20px;
+    color: black;
     position: relative;
+}
+.comic-sans-ftw__title:before {
+    display: block;
+    content: "Track:";
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-100%);
 }
 .comic-sans-ftw__title:after {
     display: block;
@@ -131,6 +143,18 @@
 .comic-sans-ftw__artist {
     display: block;
     transform: rotate(-3deg);
+    color: black;
+}
+.comic-sans-ftw__artist:before {
+    display: block;
+    content: "Artist:";
+    font-weight: normal;
+    font-size: 16px;
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-100%);
 }
 
 .comic-sans-ftw__wrapper--timer-progress-duration {

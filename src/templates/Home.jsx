@@ -33,7 +33,7 @@ const Home = ({ content, page, site }) => {
                 </div>
             </div>
             <div
-                className="stack--large"
+                className="stack"
                 dangerouslySetInnerHTML={{ __html: content }}
             />
         </Main>

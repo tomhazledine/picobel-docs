@@ -17,8 +17,10 @@
 @import "./_components.header.css";
 @import "./_components.home.css";
 @import "./_components.menu.css";
+@import "./_components.ornaments.css";
 @import "./_components.sidebar.css";
 @import "./_components.smalls.css";
+@import "./_components.toc.css";
 
 @import "../../node_modules/picobel/build/picobel.all.css";
 

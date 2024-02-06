@@ -1,0 +1,56 @@
+.toc ol {
+    counter-reset: item;
+    padding: 0;
+}
+
+.toc {
+    border-left: 0.3rem solid var(--grey);
+    position: relative;
+    padding: 0 0 0 1em;
+    line-height: 1.2;
+}
+
+.toc a {
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.toc > h2 {
+    display: block;
+    font-style: italic;
+    font-size: 1em;
+    font-weight: var(--type-weight--book);
+    line-height: 1.4;
+}
+
+.toc li {
+    display: block;
+    list-style-position: outside;
+    list-style: none;
+    margin-left: 1em;
+    position: relative;
+}
+
+.toc li li {
+    margin-left: 3em;
+}
+
+.toc li:before {
+    text-align: right;
+    left: -0.5em;
+    transform: translateX(-100%);
+    letter-spacing: 0.05rem;
+    content: counters(item, ".");
+    counter-increment: item;
+    display: block;
+    position: absolute;
+    top: 0em;
+    line-height: inherit;
+    /* letter-spacing: -0.1em; */
+    /* color: var(--grey--dark);s */
+}
+
+.toc li li:before {
+    /* width: 4em; */
+    /* left: -4.75em; */
+}

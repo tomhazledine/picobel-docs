@@ -1,14 +1,39 @@
 ---
-title: Getting started
+title: Getting Started
 layout: Page
 menuGroup: general
+menuPriority: 1
 ---
+
+<ToC
+    heading="On this page:"
+    items={[
+        {
+            title: "Installation",
+            children: [
+                "JavaScript",
+                "CSS (optional)"
+            ]
+        },
+        {
+            title: "Usage",
+            children: [
+                "Option: theme",
+                "Option: components",
+                "Option: context",
+                "Option: title and data-artist metadata"
+            ]
+        }
+    ]}
+/>
 
 ## Installation
 
-Picobel is a JavaScript utility, so you'll need to include the 
+### JavaScript
 
-## From [NPM](https://www.npmjs.com/package/picobel)
+Picobel is a JavaScript utility, so you'll need to include the script somehow. The recommended method is to [install from npm](#install-js-from-npm) but you can also download the script bundle and [include it directly](#install-js-manually).
+
+#### Install JS from [npm](https://www.npmjs.com/package/picobel)
 
 `yarn add picobel` (or `npm install picobel`) will install Picobel in your project and add Picobel into the `dependencies` section of your `package.json` file. 
 
@@ -17,172 +42,173 @@ Picobel is a JavaScript utility, so you'll need to include the
 import picobel from 'picobel';
 
 // Initialise picobel:
-picobel()
+picobel();
 
 // ...or initialise picobel with your chosen options:
-picobel({ theme: 'default' })
+picobel({ theme: 'default' });
 ```
 
-## Manually
+#### Install JS manually
 
 If you prefer not to use npm, you can include the Picobel build file directly.
 
 ```html
 <!-- Load Picobel -->
 <script type='text/javascript' src='picobel.min.js'></script>
-```
-
----
-
-If you are using WebPack (or similar) to bundle your scripts, you can include the stylesheet for your chosen Picobel theme here too:
-
-```js
-// Include the styles for *all* the themes:
-import 'picobel/css/all.css';
-
-// ...or include only the styles for a specific theme:
-import 'picobel/css/player.default.css';
-```
-
-Alternatively you could include the stylesheets manually with a `<link>` tag in your `index.html`:
-
-```html
-<!-- Load the Picobel CSS -->
-<link rel='stylesheet' href='node_modules/picobel/css/player.default.css' type='text/css'/>
-```
-
-When your page loads, Picobel will replace any default `<audio>` elements with a block of custom-markup, complete with classes that you can use to apply your custom CSS.
-
-### Manually install
-
-To use **Picobel.js** you'll need to include the `picobel.js` file (found here: [picobel.legacy.min.js](https://github.com/tomhazledine/picobel/blob/master/picobel.legacy.min.js)) in your project. This needs to be called before your custom scripts, and ideally in the `<footer>` of your page.
-
-```html
-<!-- Load Picobel -->
-<script type='text/javascript' src='picobel.min.js'></script>
-```
-
-You will also need the CSS styles. Choose which "theme" you'd like to use, and load that stylesheet. All current themes can be previewed in the [Picobel.js CodePen Collection](http://codepen.io/collection/XpZEor/), and all the css files can be found in the repo, [here](https://github.com/tomhazledine/picobel/tree/master/css).
-
-```html
-<!-- Load the Picobel CSS -->
-<link rel='stylesheet' href='player.default.css' type='text/css'/>
-```
-
-Then initialize the function. For simplicity, the example below does this in an in-line `<script>` tag, but you can add this to your master JS file. Just make sure you initialise Picobel _after_ the picobel.min.js file has been called.
-
-```html
-<!-- Initialise Picobel -->
-<script>
-    Picobel();
+<script type='text/javascript'>
+    picobel();
 </script>
 ```
 
-When your page loads, Picobel will replace any default `<audio>` elements with a block of custom-markup, complete with classes that you can use to apply your custom CSS.
+### CSS (optional)
+
+Picobel's primary aim is to provide structured markup for styling audio players. If you're commited to writing all your own CSS then you do not need to include any of the Picobel stylesheets (although feel free to [use the pre-made themes as inspiration](/themes) or as a jumping-off point for [writing your own styles](/styling)). 
+
+But you don't **have** to write your own CSS. Picobel comes with several "pre made" themes that you can include.
+
+Adding a theme is a two-step process:
+
+1. Declare the `theme` option when initialising Picobel.
+2. Be sure to inclde the relevant stylesheet in your project.
+
+```js
+picobel({ theme: 'default' });
+```
+
+You can find the CSS files for each theme in the [`/src/css` directory of the GitHub repo](https://github.com/tomhazledine/picobel/tree/main/src/css), along with minified production-ready versions [here](https://github.com/tomhazledine/picobel/tree/main/build). The filename convention is `picobel.THEME_NAME.css`.
+
+#### Themes currently supported by **Picobel v3**:
+
+* **Default**: [`picobel.default.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/build/picobel.default.css)
+* **Skeleton**: [`picobel.skeleton.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/build/picobel.skeleton.css)
+* **iTunes**: [`picobel.itunes.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/build/picobel.itunes.css)
+* **BBC**: [`picobel.bbc.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/build/picobel.bbc.css)
+
+> **Note:** There is also an **"all"** stylesheet ([`picobel.all.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/build/picobel.all.css)). This is useful for development settings and experimentaion (when you may want to swap quickly between different themes), but using this file in production is not recommended as the file size is quite large (by definition, it includes *all* the CSS for all the themes).
+
+Learn more about [using themes](/themes).
 
 ## Usage
 
-If you're using a theme other than "basic", you'll need to specify the theme name in the options object when you intialise Picobel.
+Picobel is initialised by using the `picobel()` function:
 
 ```js
-Picobel( { theme: 'themename' } );
+import picobel from 'picobel';
+
+picobel();
 ```
 
-This adds a class to the container of each audio element, so if you've made your own styles you can use this to make sure your CSS is nicely namespaced.
+When your page loads, Picobel will replace any default `<audio>` elements with a block of custom-markup, complete with classes that you can use to apply your custom CSS.
 
-### This:
+There are several options that can be passed to Picobel: [`theme`](#option-theme), [`components`](#option-components), and [`context`](#option-context).
 
-```html
-<audio src="http://path/to/audio/file.mp3"></audio>
+### Option: `theme`
+
+Picobel adds a prefix to all class names in it's markup, which defaults to `"picobel"` but can be overridden with the `theme` option.
+
+If you're using a [pre-made Picobel theme](/themes), the `theme` option is where you declare the theme you want to use. (don't forget to [include the relevant CSS](#css-optional) if you're using a pre-made theme). 
+
+```js
+picobel( { theme: "themename" } );
 ```
 
-### Gets turned into this:
+### Option: `components`
+
+Picobel gives you the power to choose which elements are included in the markup that replaces the `<audio>` elements The `components` option allows you to specify which of the available elements are included, and in which order.
+
+For example, this option value...
+
+```js
+picobel({
+    components: ["playPause", "duration"]
+})
+```
+
+...produces this markup:
 
 ```html
-<div class="picobel player_0" data-song-index="0">
-    <div class="loader"></div>
-    <button class="playerTrigger">
-        <span class="buttonText">play</span>
+<div class="picobel picobel--index-0" data-picobel-index="0">
+    <div class="picobel__loader"></div>
+
+    <button class="picobel__play-pause" type="button">
+        <span class="picobel__play-pause__text">Play</span>
     </button>
-    <div class="metaWrapper">
-        <span class="titleDisplay">file.mp3</span>
-        <span class="artistDisplay"></span>
-    </div>
-    <div class="timingsWrapper">
-        <span class="songPlayTimer">0:00</span>
-        <div class="songProgressSliderWrapper">
-            <div class="pseudoProgressBackground"></div>
-            <div class="pseudoProgressIndicator"></div>
-            <div class="pseudoProgressPlayhead"></div>
-            <input type="range" min="0" max="100" class="songProgressSlider">
-        </div>
-        <span class="songDuration">3:51</span>
-    </div>
-    <div class="songVolume">
-        <div class="songVolumeLabelWrapper">
-            <span class="songVolumeLabel">Volume</span>
-            <span class="songVolumeValue">10</span>
-        </div>
-        <div class="songVolumeSliderWrapper">
-            <div class="pseudoVolumeBackground"></div>
-            <div class="pseudoVolumeIndicator"></div>
-            <div class="pseudoVolumePlayhead"></div>
-            <input type="range" min="0" max="1" step="0.1" class="songVolumeSlider">
-        </div>
+
+    <span class="picobel__duration">1:42</span>
+</div>
+```
+
+> **Note:** a `<div>` with the class name of `{THEME_NAME}__loader` is always included in the generated markup. This is to ensure a loading state can be targeted by use of the CSS selector `.picobel.loading picobel__loader`.
+
+#### Available components
+
+* `playPause` - a `<button>` to trigger playing/pauseing the audio.
+* `mute` - a `<button>` to toggle the audio's mute state.
+* `volume` - an `<input type="range">` to control the level of the audio's volume.
+* `title` - a `<span>` that displays the audio file's title.
+* `artist` - a `<span>` that displays the audio file's "artist" metadata.
+* `duration` - a `<span>` that displays the total duration of the audio file (format `MM:SS`).
+* `timer` - a `<span>` that displays the current position of the audio file (format `MM:SS`).
+* `progress` - an `<input type="range">` to control the position of the audio's playback.
+
+#### Nesting components
+
+Sometimes it is useful to be able to wrap certain components in a wrapper `<div>` (particularly to help set a desired layout with `flex` or `grid` properties). This "nesting" can be controlled by using nested arrays in the `components` definition.
+
+The class name applied to these "wrapper" elements is `{THEME_NAME}__wrapper--{COMPONENT_0}-{COMPONENT_1}-{ETC...}`
+
+For example, this following setting will add the `playPause` button at the root level, but wrap the `title` and `artist` elements in a containing `<div>`.
+
+```js
+picobel({
+    components: [
+        "playPause",
+        [ "title", "artist"]
+    ]
+})
+```
+
+```html
+<div class="picobel picobel--index-0 default" data-picobel-index="0">
+    <div class="default__loader"></div>
+    
+    <button class="default__play-pause" type="button">
+        <span class="default__play-pause__text">Play</span>
+    </button>
+    
+    <div class="default__wrapper--title-artist">
+        <span class="default__title">Taken at the Flood</span>
+        <span class="default__artist">Freeze Them</span>
     </div>
 </div>
 ```
 
-## Setting "artist" and "track name" values
+### Option: `context
 
-Applying metadata to your audio file requires adding data-attributes to your `<audio>` markup. Picobel gets the track name from the regular `title` attribute, and looks for artist information in the `data-artist` attribute. For the demo at the top of this page, the markup looks like this:
+By default, Picobel will replace every `<audio>` element that it finds in the entire DOM. If you only want Picobel to look for `<audio>` elements in a certain part of your page you can use the `context` option.
+
+```js
+import picobel from "picobel";
+
+const areaToSearch = document.querySelector("#example-01");
+
+picobel({ context: areaToSearch})
+```
+
+### Option: `title` and `data-artist` metadata
+
+Applying metadata to your audio file requires adding data-attributes to your `<audio>` markup. Picobel gets the track name from the regular `title` attribute, and looks for artist information in the `data-artist` attribute.
 
 ```html
-<audio src="http://audio.eatenbymonsters.com/reviews/coldWarKids/lostThatEasy.mp3" title="Lost that easy" data-artist="Cold War Kids" controls>
+<audio
+    src="http://audio.eatenbymonsters.com/reviews/coldWarKids/lostThatEasy.mp3"
+    title="Lost that easy"
+    data-artist="Cold War Kids"
+    controls
+>
     Your browser does not support the <code>audio</code> element.
 </audio>
 ```
 
-## Pre-made themes
+> **Note:** because "title" and "artist" values can change from one audio element to the next, these values are defined on the HTML elements themselves rather than in the `options` object (which applies to *all* Picobel instances).
 
-Picobel comes with many pre-made themes. To use a theme, make sure you've downloaded the correct stylesheet from the [Picobel CSS library](https://github.com/tomhazledine/picobel/tree/master/css) and then reference the chosen theme name as an option when you initialize Picobel in your JS.
-
-```html
-<!-- Initialise Picobel with a theme-->
-<script>
-    Picobel( { theme: "chosenThemeName" } );
-</script>
-```
-
-So if you wanted to use the "iTunes" theme, your Picobel call would look like this: `Picobel({theme:"itunes"});`. If you don't explicitly choose a theme, then the Default theme will be used. The current options are: `skeleton`, `itunes`, `bbc`, `soundcloud`, `pitchfork`, & `eatenbymonsters`.
-
-You can see them all in action in the [Picobel.js CodePen Collection](http://codepen.io/collection/XpZEor/), and see screenshots of each featured theme on this page:
-
-![Default theme](/images/theme_basic.png)
-_Default theme. [View the this theme on CodePen](http://codepen.io/tomhazledine/pen/VpNqYO)_
-
-![Skeleton theme](/images/theme_skeleton.png)
-_Skeleton theme (use this as a jumping-off point for your own styles). [View the this theme on CodePen](http://codepen.io/tomhazledine/pen/zZXyGa)_
-
-![BBC iPlayer theme](/images/theme_bbc.png)
-_BBC iPlayer-esque theme. [View the this theme on CodePen](http://codepen.io/tomhazledine/pen/kXZaKL)_
-
-![iTunes theme](/images/theme_itunes.png)
-_iTunes-esque theme. [View the this theme on CodePen](http://codepen.io/tomhazledine/pen/NAyWQW)_
-
-![Soundcloud theme](/images/theme_soundcloud.png)
-_Soundcloud-esque theme. [View the this theme on CodePen](http://codepen.io/tomhazledine/pen/VpNqjJ)_
-
-![Pitchfork theme](/images/theme_pitchfork.png)
-_Pitchfork-esque theme. [View the this theme on CodePen](http://codepen.io/tomhazledine/pen/OpGrXN)_
-
-![Eaten by Monsters theme](/images/theme_ebm.png)
-_Eaten by Monsters theme. [View the this theme on CodePen](http://codepen.io/tomhazledine/pen/gmyZLP)_
-
-## Contribute
-
-This started out as a "scratch your own itch" tool for a specific project. I'm open-sourcing it in the hope it might prove useful to others too. There are _a few_ audio player tools/plugins out there, but most have too many features for my needs. I like simplicity, and I like any JS I add to my sites to be as lean as possible.
-
-I'm hoping Picobel can be of use to as many people as possible. If you have an improvement or bug-fix or new feature, get in touch! Make a pull request on the [Picobel.js Github repo](https://github.com/tomhazledine/picobel). I'm just getting started with "open source", so I'd be very glad of any help or suggestions or advice.
-
-Read more about contribute in this project's [Contribution Guide](https://github.com/tomhazledine/picobel/blob/master/CONTRIBUTING.md)

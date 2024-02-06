@@ -2,7 +2,9 @@
 title: Picobel
 layout: Home
 menuGroup: general
+
 ---
+<div className="stack--large">
 
 Picobel.js (pronounced _peek-o-bell_, as in _decibel_) is a lightweight dependency-free Javascript tool that converts html audio tags into styleable markup.
 
@@ -89,12 +91,9 @@ picobel({
 ```
 </div>
 
-<ToC heading={false} items={[
-    'Why would I need this?',
-    'Examples',
-    'Quick start'
-]} />
+</div>
 
+---
 
 ## Why would I need this?
 
@@ -106,33 +105,11 @@ There are two reasons you might want to use Picobel:
 
 The native html `<audio>` tag provides fantastic functionality, but gives you no styling options at all. Picobel rebuilds the audio player with regular html elements: you get all the functionality of the native audio element, _and_ complete control of it's appearance.
 
-## Examples
-
-
-**Picobel** allows you to create custom styles for your audio players: providing cross-browser consistency and a seamless integration with your existing brand styles.
-
-## Quick start
-
-Add Picobel to your project:
-
-```bash
-yarn add picobel
-```
-
-In your JS, initialise Picobel with your chosen class name:
-
-```js
-import picobel from "picobel";
-
-picobel({theme: "my-awesome-audio-player"});
-```
-
-Picobel will then find any `<audio>` elements on the page and replace them with markup you can style with CSS.
-
 ## Learn more
 
 There are plenty of things you can tweak and configure in Picobel. Learn more here:
 
-* [Using premade themes]()
-* [Write your own CSS theme]()
-* [Picobel Web Component]()
+* [Get Started](/getting-started)
+* [Use Premade Themes](/themes)
+* [Write your own CSS](/styling)
+* [Picobel Web Component](/web-component)
