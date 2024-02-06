@@ -4,5 +4,107 @@ layout: Page
 menuPriority: 2
 ---
 
-You can use these pre-made themes:
+Picobel comes with a few pre-made themes (for times when you don't want to style an entire audio player from scratch). To use a theme, make sure you've downloaded the correct stylesheet from the [Picobel CSS library](https://github.com/tomhazledine/picobel/tree/master/src/css) and then reference the chosen theme name as an option when you initialize Picobel in your JS.
 
+<ToC
+    heading="Available themes:"
+    items={[
+        {
+            title: "Themes currently supported by Picobel v3",
+            children: [
+                "Default",
+                "Skeleton",
+                "BBC",
+                "iTunes"
+            ]
+        },
+        {
+            title: "V2 Themes",
+            children: [
+                "Soundcloud",
+                "Pitchfork",
+                "Eaten by Monsters"
+            ]
+        }
+    ]}
+/>
+
+```html
+<!-- Load the theme's stylesheet -->
+<link rel="stylesheet" href="path/to/picobel.default.css">
+
+<!-- Initialise Picobel with a theme -->
+<script>
+    picobel( { theme: "default" } );
+</script>
+```
+
+You can find the CSS files for each theme in the [`/src/css` directory of the GitHub repo](https://github.com/tomhazledine/picobel/tree/main/src/css), along with minified production-ready versions [here](https://github.com/tomhazledine/picobel/tree/main/build). The filename convention is `picobel.THEME_NAME.css`.
+
+## Themes currently supported by **Picobel v3**:
+
+* **Default**: [`picobel.default.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/build/picobel.default.css)
+* **Skeleton**: [`picobel.skeleton.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/build/picobel.skeleton.css)
+* **iTunes**: [`picobel.itunes.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/build/picobel.itunes.css)
+* **BBC**: [`picobel.bbc.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/build/picobel.bbc.css)
+
+You can see them all in action in the [Picobel.js CodePen Collection](http://codepen.io/collection/XpZEor/), and see screenshots of each featured theme on this page:
+
+### Default
+
+![Default theme](/images/theme_basic.png)
+
+_[View the this theme on CodePen](http://codepen.io/tomhazledine/pen/VpNqYO)_
+
+The default theme. The highlight colour can be altered by overriding the `--hightlight` CSS custom property:
+
+```css
+.picobel {
+    --highlight: "red";
+}
+```
+
+### Skeleton
+
+![Skeleton theme](/images/theme_skeleton.png)
+
+_[View the this theme on CodePen](http://codepen.io/tomhazledine/pen/zZXyGa)_
+
+Use this as a jumping-off point for your own styles.
+
+### BBC
+
+![BBC iPlayer theme](/images/theme_bbc.png)
+
+_[View the this theme on CodePen](http://codepen.io/tomhazledine/pen/kXZaKL)_
+
+A theme in the style of BBC iPlayer ~2013.
+
+### iTunes
+
+![iTunes theme](/images/theme_itunes.png)
+
+_[View the this theme on CodePen](http://codepen.io/tomhazledine/pen/NAyWQW)_
+
+A theme in the style of the iTunes interface ~2013.
+
+## V2 themes
+
+Several other themes were available with <=v2 of Picobel, but have been removed in v3. If you need access to these themes, you can still use Picobel v2.1.0. They will return to v3 soon along with a detailed migration guide for upgrading to v3.
+
+These are not yet migrated to Picobel V3:
+
+### Soundcloud
+
+![Soundcloud theme](/images/theme_soundcloud.png)
+_Soundcloud-esque theme. [View the this theme on CodePen](http://codepen.io/tomhazledine/pen/VpNqjJ)_
+
+### Pitchfork
+
+![Pitchfork theme](/images/theme_pitchfork.png)
+_Pitchfork-esque theme. [View the this theme on CodePen](http://codepen.io/tomhazledine/pen/OpGrXN)_
+
+### Eaten by Monsters
+
+![Eaten by Monsters theme](/images/theme_ebm.png)
+_Eaten by Monsters theme. [View the this theme on CodePen](http://codepen.io/tomhazledine/pen/gmyZLP)_

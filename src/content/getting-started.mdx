@@ -116,18 +116,14 @@ picobel( { theme: "themename" } );
 
 Picobel gives you the power to choose which elements are included in the markup that replaces the `<audio>` elements The `components` option allows you to specify which of the available elements are included, and in which order.
 
-For example, this option value...
-
 ```js
 picobel({
     components: ["playPause", "duration"]
 })
 ```
 
-...produces this markup:
-
 ```html
-<div class="picobel picobel--index-0" data-picobel-index="0">
+<div class="picobel">
     <div class="picobel__loader"></div>
 
     <button class="picobel__play-pause" type="button">
@@ -169,16 +165,16 @@ picobel({
 ```
 
 ```html
-<div class="picobel picobel--index-0 default" data-picobel-index="0">
-    <div class="default__loader"></div>
+<div class="picobel">
+    <div class="picobel__loader"></div>
     
-    <button class="default__play-pause" type="button">
-        <span class="default__play-pause__text">Play</span>
+    <button class="picobel__play-pause" type="button">
+        <span class="picobel__play-pause__text">Play</span>
     </button>
     
-    <div class="default__wrapper--title-artist">
-        <span class="default__title">Taken at the Flood</span>
-        <span class="default__artist">Freeze Them</span>
+    <div class="picobel__wrapper--title-artist">
+        <span class="picobel__title">Taken at the Flood</span>
+        <span class="picobel__artist">Freeze Them</span>
     </div>
 </div>
 ```
@@ -190,9 +186,9 @@ By default, Picobel will replace every `<audio>` element that it finds in the en
 ```js
 import picobel from "picobel";
 
-const areaToSearch = document.querySelector("#example-01");
+const areaToApplyPicobelTo = document.querySelector("#example-01");
 
-picobel({ context: areaToSearch})
+picobel({ context: areaToApplyPicobelTo })
 ```
 
 ### Option: `title` and `data-artist` metadata
@@ -201,9 +197,9 @@ Applying metadata to your audio file requires adding data-attributes to your `<a
 
 ```html
 <audio
-    src="http://audio.eatenbymonsters.com/reviews/coldWarKids/lostThatEasy.mp3"
-    title="Lost that easy"
-    data-artist="Cold War Kids"
+    src="/audio-examples/taken-at-the-flood.mp3"
+    title="Taken at the Flood"
+    data-artist="Freeze Them"
     controls
 >
     Your browser does not support the <code>audio</code> element.
