@@ -51,6 +51,9 @@ pre:has(.hljs.language-js):before {
 pre:has(.hljs.language-html):before {
     content: "HTML";
 }
+pre:has(.hljs.language-css):before {
+    content: "CSS";
+}
 pre:has(.hljs.language-bash):before {
     content: "Terminal command";
 }

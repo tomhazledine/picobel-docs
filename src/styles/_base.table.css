@@ -1,0 +1,73 @@
+.stack > table,
+table {
+    --table-border: var(--grey);
+    font-size: inherit;
+    margin-bottom: 3rem;
+    width: 100%;
+    border-collapse: collapse;
+    display: table;
+    width: 100%;
+    overflow-x: auto;
+    border: 0.1rem solid var(--table-border);
+}
+
+table th:first-child,
+table th:first-child {
+    text-align: left;
+}
+
+table tr {
+    border-bottom: 0.1rem solid var(--table-border);
+}
+
+table td,
+table th {
+    border-right: 0.1rem solid var(--table-border);
+    padding: 0.5rem 1rem;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    vertical-align: middle;
+    text-align: left;
+}
+
+table thead th {
+    border-bottom: 0.4rem solid var(--primary);
+}
+
+table tbody td:last-of-type {
+    border: 0;
+}
+table .table__item--centered {
+    text-align: center;
+}
+table .info {
+    margin-bottom: 0;
+}
+table.table--align-left {
+    text-align: left;
+}
+
+table.table--condensed,
+.table.table--condensed {
+    border-top: none;
+}
+
+table.table--condensed td,
+table.table--condensed th,
+.table.table--condensed td,
+.table.table--condensed th {
+    padding: 0.5rem 1rem 0.5rem 0;
+}
+
+table.table--condensed td + td,
+table.table--condensed th + th,
+.table.table--condensed td + td,
+.table.table--condensed th + th {
+    padding-left: 1rem;
+}
+table.table--condensed td:last-of-type,
+table.table--condensed th:last-of-type,
+.table.table--condensed td:last-of-type,
+.table.table--condensed th:last-of-type {
+    padding-right: 0rem;
+}

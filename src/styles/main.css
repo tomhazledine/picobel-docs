@@ -11,6 +11,7 @@
 @import "./_base.general.css";
 @import "./_base.icons.css";
 @import "./_base.layout.css";
+@import "./_base.table.css";
 
 @import "./_components.examples.example-01.css";
 @import "./_components.examples.comic-sans-ftw.css";
