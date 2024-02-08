@@ -78,6 +78,11 @@ const Main = ({ page, site, children }) => {
                     <div className="container stack">{children}</div>
                 </main>
                 <script src="/picobel-showcase.app.js"></script>
+                <script
+                    defer
+                    data-domain="picobel.tomhazledine.com"
+                    src="https://plausible.io/js/script.js"
+                ></script>
             </body>
         </html>
     );
