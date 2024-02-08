@@ -31,10 +31,7 @@ const Main = ({ page, site, children }) => {
                     name="viewport"
                     content="width=device-width, initial-scale=1"
                 />
-                <link
-                    rel="stylesheet"
-                    href={site.url + "picobel-showcase.main.css"}
-                />
+                <link rel="stylesheet" href="/picobel-showcase.main.css" />
             </head>
             <body className="outer">
                 <aside className="sidebar">
