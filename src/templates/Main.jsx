@@ -32,6 +32,26 @@ const Main = ({ page, site, children }) => {
                     content="width=device-width, initial-scale=1"
                 />
                 <link rel="stylesheet" href="/picobel-showcase.main.css" />
+                <meta property="og:url" content={site.url + page.url} />
+                <meta property="og:title" content={page.title} />
+                <meta
+                    property="og:image"
+                    content={
+                        page.ogImage ? page.ogImage : "/images/hero-og.png"
+                    }
+                />
+                <meta
+                    name="description"
+                    content={
+                        page.description ? page.description : site.description
+                    }
+                />
+                <meta
+                    property="og:description"
+                    content={
+                        page.description ? page.description : site.description
+                    }
+                />
             </head>
             <body className="outer">
                 <aside className="sidebar">

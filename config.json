@@ -4,6 +4,7 @@
     "out": "build",
     "templates": "src/templates",
     "data": {
-        "title": "Picobel.js"
+        "title": "Picobel.js",
+        "description": "Picobel.js (pronounced peek-o-bell, as in decibel) is a lightweight dependency-free Javascript tool that converts html audio tags into styleable markup."
     }
 }
