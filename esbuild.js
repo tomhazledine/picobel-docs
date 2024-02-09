@@ -16,7 +16,11 @@ const args = parseArgs(process.argv);
 const appName = "picobel-showcase";
 
 const config = {
-    entryPoints: ["src/js/app.js", "src/styles/main.css"],
+    entryPoints: [
+        "src/js/app.js",
+        "src/js/components.js",
+        "src/styles/main.css"
+    ],
     entryNames: `${appName}.[name]`,
     bundle: true,
     outdir: `build`,

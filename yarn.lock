@@ -2106,10 +2106,10 @@ path-parse@^1.0.7:
   resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
   integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
-picobel@3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/picobel/-/picobel-3.0.2.tgz#ab5c3f42c306f22e720daca6a0756940e81c902f"
-  integrity sha512-a26wo9pTufANlWIBAPdymM3IfP2tSrLBu8H1J5ZNVgFP6xGb7VZQuO6eRe2MrdtAZPRy6DdbD8fjk8las0SkJA==
+picobel@3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/picobel/-/picobel-3.0.3.tgz#705d870b6a1981d45a16e08ea532e71e6f72b5f0"
+  integrity sha512-h15sIIV75WPLEJoqHMNmjBnurk6yd2P3WHe+nYrzpFrs51WhPwOR3pnwOgTZ9n72nbv0JPDPvjP/zAkktBOV6A==
 
 picocolors@^1.0.0:
   version "1.0.0"
