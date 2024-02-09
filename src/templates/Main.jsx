@@ -37,7 +37,8 @@ const Main = ({ page, site, children }) => {
                 <meta
                     property="og:image"
                     content={
-                        page.ogImage ? page.ogImage : "/images/hero-og.png"
+                        site.url +
+                        (page.ogImage ? page.ogImage : "/images/hero-og.png")
                     }
                 />
                 <meta
