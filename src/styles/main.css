@@ -25,6 +25,8 @@
 
 @import "../../node_modules/picobel/build/picobel.all.css";
 
+@import "./_trumps.theme-overrides.css";
+
 :root {
     color-scheme: light dark;
 }
