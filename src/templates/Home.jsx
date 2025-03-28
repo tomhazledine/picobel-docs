@@ -17,10 +17,10 @@ const Home = ({ content, page, site }) => {
                     )}
                     <a
                         className="home__meta-item--ci-badge"
-                        href="https://github.com/tomhazledine/picobel/actions/workflows/node.js.yml"
+                        href="https://github.com/tomhazledine/picobel/actions/workflows/tests.yml"
                     >
                         <img
-                            src="https://github.com/tomhazledine/picobel/actions/workflows/node.js.yml/badge.svg"
+                            src="https://github.com/tomhazledine/picobel/actions/workflows/tests.yml/badge.svg"
                             alt="Node.js CI"
                         />
                     </a>
