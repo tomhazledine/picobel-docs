@@ -21,7 +21,8 @@ menuPriority: 1
                 "Option: theme",
                 "Option: components",
                 "Option: context",
-                "Option: title and data-artist metadata"
+                "Option: title and data-artist metadata",
+                "Cleaning up"
             ]
         }
     ]}
@@ -31,7 +32,7 @@ menuPriority: 1
 
 ### JavaScript
 
-Picobel is a JavaScript utility, so you'll need to include the script somehow. The recommended method is to [install from npm](#install-js-from-npm) but you can also download the script bundle and [include it directly](#install-js-manually).
+Picobel is a JavaScript utility, so you'll need to include the script somehow. The recommended method is to [install from npm](#install-js-from-npm) but you can also load the script bundle [directly from a CDN](#install-js-manually).
 
 #### Install JS from [npm](https://www.npmjs.com/package/picobel)
 
@@ -50,15 +51,20 @@ picobel({ theme: 'default' });
 
 #### Install JS manually
 
-If you prefer not to use npm, you can include the Picobel build file directly.
+If you prefer not to use npm, you can load Picobel from the [jsDelivr CDN](https://www.jsdelivr.com/package/npm/picobel) (which serves the published npm package):
 
 ```html
 <!-- Load Picobel -->
-<script type='text/javascript' src='picobel.js'></script>
+<script
+    type='text/javascript'
+    src='https://cdn.jsdelivr.net/npm/picobel@3/build/picobel.js'
+></script>
 <script type='text/javascript'>
     picobel();
 </script>
 ```
+
+> **Note:** `picobel@3` always serves the latest 3.x release. Pin an exact version (e.g. `picobel@3.4.0`) for production — a pinned file can never change underneath you.
 
 ### CSS (optional)
 
@@ -79,15 +85,15 @@ You can find the CSS files for each theme in the [`/packages/picobel/src/css` di
 
 #### Themes currently supported by **Picobel v3**:
 
-* **Default**: [`picobel.default.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/packages/picobel/build/picobel.default.css)
-* **Skeleton**: [`picobel.skeleton.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/packages/picobel/build/picobel.skeleton.css)
-* **iTunes**: [`picobel.itunes.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/packages/picobel/build/picobel.itunes.css)
-* **BBC**: [`picobel.bbc.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/packages/picobel/build/picobel.bbc.css)
-* **Soundcloud**: [`picobel.soundcloud.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/packages/picobel/build/picobel.soundcloud.css)
-* **Pitchfork**: [`picobel.pitchfork.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/packages/picobel/build/picobel.pitchfork.css)
-* **Eaten by Monsters**: [`picobel.eatenbymonsters.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/packages/picobel/build/picobel.eatenbymonsters.css)
+* **Default**: [`picobel.default.css`](https://cdn.jsdelivr.net/npm/picobel@3/build/picobel.default.css)
+* **Skeleton**: [`picobel.skeleton.css`](https://cdn.jsdelivr.net/npm/picobel@3/build/picobel.skeleton.css)
+* **iTunes**: [`picobel.itunes.css`](https://cdn.jsdelivr.net/npm/picobel@3/build/picobel.itunes.css)
+* **BBC**: [`picobel.bbc.css`](https://cdn.jsdelivr.net/npm/picobel@3/build/picobel.bbc.css)
+* **Soundcloud**: [`picobel.soundcloud.css`](https://cdn.jsdelivr.net/npm/picobel@3/build/picobel.soundcloud.css)
+* **Pitchfork**: [`picobel.pitchfork.css`](https://cdn.jsdelivr.net/npm/picobel@3/build/picobel.pitchfork.css)
+* **Eaten by Monsters**: [`picobel.eatenbymonsters.css`](https://cdn.jsdelivr.net/npm/picobel@3/build/picobel.eatenbymonsters.css)
 
-> **Note:** There is also an **"all"** stylesheet ([`picobel.all.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/packages/picobel/build/picobel.all.css)). This is useful for development settings and experimentation (when you may want to swap quickly between different themes), but using this file in production is not recommended as the file size is quite large (by definition, it includes *all* the CSS for all the themes).
+> **Note:** There is also an **"all"** stylesheet ([`picobel.all.css`](https://cdn.jsdelivr.net/npm/picobel@3/build/picobel.all.css)). This is useful for development settings and experimentation (when you may want to swap quickly between different themes), but using this file in production is not recommended as the file size is quite large (by definition, it includes *all* the CSS for all the themes).
 
 Learn more about [using themes](/themes).
 
@@ -210,4 +216,19 @@ Applying metadata to your audio file requires adding data-attributes to your `<a
 ```
 
 > **Note:** because "title" and "artist" values can change from one audio element to the next, these values are defined on the HTML elements themselves rather than in the `options` object (which applies to *all* Picobel instances).
+
+### Cleaning up
+
+> **Note:** new in v3.4.0
+
+`picobel()` returns an instance with a `destroy()` method. Call it if you ever need to remove the players — for example before a client-side navigation in a single-page app. It stops playback, removes all event listeners, and restores the original `<audio>` elements to the document.
+
+```js
+const players = picobel();
+
+// ...later:
+players.destroy();
+```
+
+Without this step, removing a player's markup from the page would leave its (hidden) audio element playing with no way to stop it — so if your page's content comes and goes, pair every `picobel()` call with a `destroy()`.
 

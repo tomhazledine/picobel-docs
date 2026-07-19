@@ -6,7 +6,7 @@ menuPriority: 5
 description: Picobel is available as a set of React components, giving you full control over your audio player UI.
 ---
 
-> **Note:** Experimental as of version 3.0.x
+> **Note:** Experimental as of version 3.0.x; substantially reworked in v3.4.0 — players now subscribe to their own state, so a playing track no longer re-renders every other player on the page, unmounting a playing player stops its audio, and players expose their loading/error status via `loading` and `error` classes.
 
 Picobel is also available as a set of React components. This gives you native React integration with full control over your audio player UI.
 
@@ -84,7 +84,7 @@ import Picobel, {
 Don't forget to include the CSS for your chosen [theme](/themes) if you want styled players:
 
 ```jsx
-import "picobel/build/picobel.default.css";
+import "picobel/styles/default";
 ```
 
 ---
