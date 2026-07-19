@@ -1,7 +1,11 @@
 import Main from "./Main.js";
 import Hero from "./icons/Hero.js";
 
-import _package from "../../package.json" assert { type: "json" };
+// createRequire instead of a JSON import attribute: `assert` was removed
+// in Node 22+ and jsssg's transpiler can't parse `with` yet — require()
+// works everywhere.
+import { createRequire } from "node:module";
+const _package = createRequire(import.meta.url)("../../package.json");
 
 const Home = ({ content, page, site }) => {
     return (

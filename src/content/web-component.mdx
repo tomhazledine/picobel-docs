@@ -40,21 +40,26 @@ Picobel is also available as a HTML Web Component (because why not?!).
 
 ## Usage
 
-To use the component, grab the [source from GitHub](https://raw.githubusercontent.com/tomhazledine/picobel/main/packages/picobel/build/picobel-component.js) and include it at the bottom of your page with a `<script>` tag. If you want to use a [theme](/themes), include the CSS in the [same way as with regular Picobel](/getting-started/#css-optional). Now you can use the `<picobel-player>` component (and if you're using a theme be sure to set the `data-theme` attribute to the theme-name so the relevant styles are applied).
+To use the component, load the [component script from the jsDelivr CDN](https://cdn.jsdelivr.net/npm/picobel@3/build/picobel-component.js) with a `<script>` tag at the bottom of your page. If you want to use a [theme](/themes), include the CSS in the [same way as with regular Picobel](/getting-started/#css-optional). Now you can use the `<picobel-player>` component (and if you're using a theme be sure to set the `data-theme` attribute to the theme-name so the relevant styles are applied).
 
 ```html
 <!-- Add the stylesheet in your <head>... -->
-<link rel="stylesheet" href="/picobel.default.css" />
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/picobel@3/build/picobel.default.css"
+/>
 
 <!-- And add the script tag at the bottom of the page... -->
-<script src="/picobel-component.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/picobel@3/build/picobel-component.js"></script>
 ```
 
 If you're using npm, then you can import the component JS directly from the package:
 
 ```js
-import "picobel/build/picobel-component.js";
+import "picobel/component";
 ```
+
+> **Note:** as of v3.4.0 the component cleans up after itself: removing a `<picobel-player>` from the DOM stops playback, removes all event listeners, and restores the native `<audio>` element — so it's safe to use in single-page apps and dynamic layouts.
 
 ---
 
