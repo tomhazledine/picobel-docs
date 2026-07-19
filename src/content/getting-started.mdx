@@ -54,7 +54,7 @@ If you prefer not to use npm, you can include the Picobel build file directly.
 
 ```html
 <!-- Load Picobel -->
-<script type='text/javascript' src='picobel.min.js'></script>
+<script type='text/javascript' src='picobel.js'></script>
 <script type='text/javascript'>
     picobel();
 </script>
@@ -62,29 +62,32 @@ If you prefer not to use npm, you can include the Picobel build file directly.
 
 ### CSS (optional)
 
-Picobel's primary aim is to provide structured markup for styling audio players. If you're commited to writing all your own CSS then you do not need to include any of the Picobel stylesheets (although feel free to [use the pre-made themes as inspiration](/themes) or as a jumping-off point for [writing your own styles](/styling)). 
+Picobel's primary aim is to provide structured markup for styling audio players. If you're committed to writing all your own CSS then you do not need to include any of the Picobel stylesheets (although feel free to [use the pre-made themes as inspiration](/themes) or as a jumping-off point for [writing your own styles](/styling)). 
 
 But you don't **have** to write your own CSS. Picobel comes with several "pre made" themes that you can include.
 
 Adding a theme is a two-step process:
 
 1. Declare the `theme` option when initialising Picobel.
-2. Be sure to inclde the relevant stylesheet in your project.
+2. Be sure to include the relevant stylesheet in your project.
 
 ```js
 picobel({ theme: 'default' });
 ```
 
-You can find the CSS files for each theme in the [`/src/css` directory of the GitHub repo](https://github.com/tomhazledine/picobel/tree/main/src/css), along with minified production-ready versions [here](https://github.com/tomhazledine/picobel/tree/main/build). The filename convention is `picobel.THEME_NAME.css`.
+You can find the CSS files for each theme in the [`/packages/picobel/src/css` directory of the GitHub repo](https://github.com/tomhazledine/picobel/tree/main/packages/picobel/src/css), along with minified production-ready versions [here](https://github.com/tomhazledine/picobel/tree/main/packages/picobel/build). The filename convention is `picobel.THEME_NAME.css`.
 
 #### Themes currently supported by **Picobel v3**:
 
-* **Default**: [`picobel.default.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/build/picobel.default.css)
-* **Skeleton**: [`picobel.skeleton.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/build/picobel.skeleton.css)
-* **iTunes**: [`picobel.itunes.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/build/picobel.itunes.css)
-* **BBC**: [`picobel.bbc.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/build/picobel.bbc.css)
+* **Default**: [`picobel.default.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/packages/picobel/build/picobel.default.css)
+* **Skeleton**: [`picobel.skeleton.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/packages/picobel/build/picobel.skeleton.css)
+* **iTunes**: [`picobel.itunes.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/packages/picobel/build/picobel.itunes.css)
+* **BBC**: [`picobel.bbc.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/packages/picobel/build/picobel.bbc.css)
+* **Soundcloud**: [`picobel.soundcloud.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/packages/picobel/build/picobel.soundcloud.css)
+* **Pitchfork**: [`picobel.pitchfork.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/packages/picobel/build/picobel.pitchfork.css)
+* **Eaten by Monsters**: [`picobel.eatenbymonsters.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/packages/picobel/build/picobel.eatenbymonsters.css)
 
-> **Note:** There is also an **"all"** stylesheet ([`picobel.all.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/build/picobel.all.css)). This is useful for development settings and experimentaion (when you may want to swap quickly between different themes), but using this file in production is not recommended as the file size is quite large (by definition, it includes *all* the CSS for all the themes).
+> **Note:** There is also an **"all"** stylesheet ([`picobel.all.css`](https://raw.githubusercontent.com/tomhazledine/picobel/main/packages/picobel/build/picobel.all.css)). This is useful for development settings and experimentation (when you may want to swap quickly between different themes), but using this file in production is not recommended as the file size is quite large (by definition, it includes *all* the CSS for all the themes).
 
 Learn more about [using themes](/themes).
 
@@ -104,7 +107,7 @@ There are several options that can be passed to Picobel: [`theme`](#option-theme
 
 ### Option: `theme`
 
-Picobel adds a prefix to all class names in it's markup, which defaults to `"picobel"` but can be overridden with the `theme` option.
+Picobel adds a prefix to all class names in its markup, which defaults to `"picobel"` but can be overridden with the `theme` option.
 
 If you're using a [pre-made Picobel theme](/themes), the `theme` option is where you declare the theme you want to use. (don't forget to [include the relevant CSS](#css-optional) if you're using a pre-made theme). 
 
@@ -114,7 +117,7 @@ picobel( { theme: "themename" } );
 
 ### Option: `components`
 
-Picobel gives you the power to choose which elements are included in the markup that replaces the `<audio>` elements The `components` option allows you to specify which of the available elements are included, and in which order.
+Picobel gives you the power to choose which elements are included in the markup that replaces the `<audio>` elements. The `components` option allows you to specify which of the available elements are included, and in which order.
 
 ```js
 picobel({
@@ -138,7 +141,7 @@ picobel({
 
 #### Available components
 
-* `playPause` - a `<button>` to trigger playing/pauseing the audio.
+* `playPause` - a `<button>` to trigger playing/pausing the audio.
 * `mute` - a `<button>` to toggle the audio's mute state.
 * `volume` - an `<input type="range">` to control the level of the audio's volume.
 * `title` - a `<span>` that displays the audio file's title.
@@ -179,7 +182,7 @@ picobel({
 </div>
 ```
 
-### Option: `context
+### Option: `context`
 
 By default, Picobel will replace every `<audio>` element that it finds in the entire DOM. If you only want Picobel to look for `<audio>` elements in a certain part of your page you can use the `context` option.
 

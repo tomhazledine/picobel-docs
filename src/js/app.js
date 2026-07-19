@@ -32,7 +32,9 @@ homepageExamples.forEach(example => {
     if (!example.node) return;
     picobel({
         theme: example.theme,
-        components: example.components || false,
-        context: example.node
+        context: example.node,
+        // Only pass `components` when the example defines it, so the
+        // theme's default component set applies otherwise.
+        ...(example.components && { components: example.components })
     });
 });
